@@ -1,0 +1,129 @@
+@use 'colors' as *;
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	font-size: 1.6rem;
+	font-family: 'Montserrat', sans-serif;
+	background-color: $background-color;
+	color: $font-color;
+}
+
+.main__h1 {
+	padding-bottom: 2rem;
+	text-transform: uppercase;
+}
+
+.form {
+	width: 800px;
+	height: 350px;
+	border: 1px solid $font-color;
+	border-radius: 6px;
+	background-color: $font-color;
+	color: $background-color;
+	margin-bottom: 5rem;
+
+	&__box {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+
+		&-h2 {
+			text-transform: uppercase;
+			padding: 2rem;
+			text-decoration: underline;
+		}
+		&-radio {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			justify-content: space-around;
+			flex-direction: column;
+
+			&-item {
+				padding-bottom: 1rem;
+				padding-left: 2rem;
+			}
+		}
+	}
+}
+
+.progress__box {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	width: 800px;
+	// margin-bottom: 3rem;
+
+	&::before {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		height: 4px;
+		width: 100%;
+		background-color: $font-color;
+		z-index: -1;
+		content: '';
+	}
+
+	&-bar {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.step {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 6px;
+		border: 4px solid $border-color;
+		width: 40px;
+		height: 40px;
+		background-color: $font-color;
+		color: $background-color;
+	}
+
+	.active-step {
+		background-color: $progress-color;
+		border: 4px solid $progress-color-darker;
+	}
+}
+
+.buttons__box {
+	margin-top: 5rem;
+	.btn {
+		width: 100px;
+		height: 50px;
+		font-size: 3rem;
+		background-color: $progress-color;
+		cursor: pointer;
+		border: none;
+		border-radius: 6px;
+
+		&:disabled {
+			background: $border-color;
+			color: $background-color;
+			cursor: default;
+		}
+	}
+}
